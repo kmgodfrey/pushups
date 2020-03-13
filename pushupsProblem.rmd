@@ -55,6 +55,9 @@ a factor with levels **LINE**, **SKILL**: type of position played by the subject
   
 Variable analysis: You have position (factor) and number of pushups done in two minutes (numerical). What type of graphical display, numerical display and inferential test is appropriate?  
 
+position is categorical, pushups is numerical. so we use numerical ~ categorical graphical: boxplot
+summar: data summary
+inference summary:t-test to compare means
 
 # Descriptive Results
 
@@ -71,9 +74,13 @@ Typically look at boxplots when considering numerical vs categorical data. Inser
 The two variables of interest are pushups and position. Boxplot graphical displays are good ways to depict data.  --> 
 
 ```{r}
-
+plot(pushups~position,data=players)
 ```
-  
+
+Graphical summary shows line positions do less pushups than skilled players
+
+
+
 <!-- be sire to tell what the boxplot shows -->
  
 ### Numerical Descriptive Results
@@ -81,10 +88,10 @@ The two variables of interest are pushups and position. Boxplot graphical displa
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question -->
 
 ```{r}
-
+summary(players)
 ```
 
-
+This summary shows weight and height play a role in showing skill players do more pushups than line players
 
 # Inferential Results
 
@@ -92,11 +99,15 @@ The two variables of interest are pushups and position. Boxplot graphical displa
 
 
 ```{r}
-
+t.test(pushups~position,data=players)
 ```
+
+This t-test shows that there is a ability of position to perform pushups in 2 minutes 
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason. -->
 
 
+the t-test to compare means, has a p-value of 0.000009421
+This is less than 0.05, therefore we reject the null hypothesis, and conclude that we have evidence there is a difference in the average number of pushups that can be done in 2 minutes by line and skilled players.
